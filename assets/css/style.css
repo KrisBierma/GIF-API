@@ -1,0 +1,17 @@
+row{
+    clear:both;
+    display:inline-block;
+    color:blue;
+}
+h1{
+    color:purple;
+}
+h2{
+    font-size:22px;
+}
+.sub-butt{
+    margin:5px 0 0 0;
+}
+.btn-element{
+    margin:5px;
+}
