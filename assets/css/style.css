@@ -15,3 +15,10 @@ h2{
 .btn-element{
     margin:5px;
 }
+.picBox{
+    display:inline-block;
+    margin:5px;
+}
+img{
+    max-height:200px;
+}
