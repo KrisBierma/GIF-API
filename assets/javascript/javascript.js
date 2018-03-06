@@ -2,10 +2,12 @@ $(document).ready(function(){
 
 //array for button words
 var elements = ["sun", "moon"];
-var limit = 10; //change to 10
+var limit = 1; //change to 10
 var rating="pg";
 var apiKey="8HHV4xr4WJIrV4CnbfW7pYyIK2NuADEc";
 var picBox;
+var picStill;
+var picAnimated;
 
 //starts page with buttons for words already in the array
 function renderButton(){
@@ -31,32 +33,83 @@ function getGifs(){
         method: "GET"
     }).then(function(response){
         console.log(response);
-        for (var j =0; j<limit; j++){
-            var picRating = response.data[j].rating;
-            var pic = ("<img src=" +response.data[j].images.downsized_still.url+">");
-            picBox = ("<div class='picBox'>Rating: "+ picRating.toUpperCase() + "<br>" + pic);        
-            // picBox.attr("data-name", "img src=" +response.data[j].images.downsized.url);
-            $("#gifs").append(picBox);
+        for (var j =0; j<limit; j++){     
+            var newDiv = $("<div>");
+            // newDiv.toggleClass("show");
+            // newDiv.addClass("green");
+            newDiv.append("Rating: "+response.data[j].rating.toUpperCase());
+            newDiv.append("<img class='gifBtn' id='gifChange' src=" +response.data[j].images.downsized_still.url+">");
+            // newDiv.toggleClass("green, true");
+            (newDiv).append("<img class='gifBtnAnimated' src=" +response.data[j].images.original.url+">");
+            $("#gifs").append(newDiv);
         };
     });
 // }); //end click function
 };
+
+$(document).on("click", ".gifBtn", function(e){
+    console.log(e);
+    var p= e.currentTarget.className;
+    console.log(p);
+    if (p.style.display=="none"){
+        p.style.display = "block";
+    }
+    else{
+        p.style.display="none";
+    }
+    // $(this).toggleClass("show");
+});
+
+$(document).on("click", ".gifBtnAnimated", function(e){
+    // console.log(e);
+    // $(this).toggleClass("show");
+    var blah = $(this);
+    if (blah.style.display==="none"){
+        blah.style.display = "block";
+    }
+    else{
+        blah.style.display="none";
+    }
+});
+
+// $(document).on("click", function(event){
+//     console.log("hi");
+// }); 
+
+// function animateGif(){
+//     alert("Hi");
+// };
+
+// function animateGifs(){
+//     console.log("working");
+//     if (picStill){
+//         // console.log(picStill);
+//         $(picStill).removeClass("show"); 
+//         $(picStill).addClass("hide");
+//         console.log(picStill);
+
+    // }
+//     else if (picAnimated){
+//         console.log("else");
+//         picStill.addClass("hide");
+//         picAnimated.addClass("show");
+//     };
+
+//     // pic = ("<img src=" +response.data[j].images.original.url+">");
+// };
 
 $("#newWord").on("click", function(event){
     event.preventDefault();
     var anotherWord = $("#word-input").val().trim();
     //uppercase first letter
     elements.push(anotherWord);
-    // console.log(elements);
     this.form.reset();
     renderButton();
 });
 
 $(document).on("click", ".btn-element", getGifs); //from class
 
-// function alertMovieName(){
-//     console.log("working");
-// };
+// $(document).on("click", "img", animateGifs);
 
 renderButton();
 
@@ -70,3 +123,4 @@ renderButton();
 // });
 //click again to stop playing
 
+//add alt tags

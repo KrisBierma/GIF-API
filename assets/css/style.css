@@ -22,3 +22,22 @@ h2{
 img{
     max-height:200px;
 }
+/* .hide{ */
+    /* display:none; */
+    /* margin:100px; */
+    /* background-color:blue; */
+/* } */
+/* .show{
+    display:inline !important;
+    background-color:purple; */
+/* } */
+/* .green{
+    color:green; */
+    /* display:none; */
+/* } */
+.gifBtn{
+    display:block;
+}
+.gifBtnAnimated{
+    display:none;
+}
