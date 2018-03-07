@@ -1,16 +1,8 @@
-row{
-    clear:both;
-    display:inline-block;
-    color:blue;
-}
 h1{
     color:purple;
 }
 h2{
     font-size:22px;
-}
-.sub-butt{
-    margin:5px 0 0 0;
 }
 .btn-element{
     margin:5px;
@@ -18,26 +10,7 @@ h2{
 .picBox{
     display:inline-block;
     margin:5px;
-}
+} 
 img{
-    max-height:200px;
-}
-/* .hide{ */
-    /* display:none; */
-    /* margin:100px; */
-    /* background-color:blue; */
-/* } */
-/* .show{
-    display:inline !important;
-    background-color:purple; */
-/* } */
-/* .green{
-    color:green; */
-    /* display:none; */
-/* } */
-.gifBtn{
     display:block;
-}
-.gifBtnAnimated{
-    display:none;
 }
